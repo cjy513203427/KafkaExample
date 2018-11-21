@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
+import static org.apache.kafka.common.requests.DeleteAclsResponse.log;
+
 @Slf4j
 @Component
 public class SimpleConsumer {

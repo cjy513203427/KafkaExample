@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import static org.apache.kafka.common.requests.DeleteAclsResponse.log;
+
 
 @Slf4j
 @RestController

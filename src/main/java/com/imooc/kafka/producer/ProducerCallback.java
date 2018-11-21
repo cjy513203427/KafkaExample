@@ -9,6 +9,8 @@ import org.springframework.kafka.support.SendResult;
 import org.springframework.lang.Nullable;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
+import static org.apache.kafka.common.requests.DeleteAclsResponse.log;
+
 @Slf4j
 public class ProducerCallback implements ListenableFutureCallback<SendResult<String, MessageEntity>> {
 

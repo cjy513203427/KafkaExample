@@ -35,6 +35,7 @@ public class KafkaProducerConfig {
 
     public Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();
+        props.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, servers);
         props.put(ProducerConfig.RETRIES_CONFIG, retries);
         props.put(ProducerConfig.BATCH_SIZE_CONFIG, batchSize);

@@ -14,6 +14,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +24,7 @@ import java.util.Map;
 public class KafkaConsumerConfig {
 
     @Value("${kafka.consumer.servers}")
-    private String servers;
+    private String  servers;
     @Value("${kafka.consumer.enable.auto.commit}")
     private boolean enableAutoCommit;
     @Value("${kafka.consumer.session.timeout}")
@@ -57,6 +58,7 @@ public class KafkaConsumerConfig {
 
     private Map<String, Object> consumerConfigs() {
         Map<String, Object> propsMap = new HashMap<>();
+        propsMap.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
         propsMap.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, servers);
         propsMap.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, enableAutoCommit);
         propsMap.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, autoCommitInterval);

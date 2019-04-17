@@ -21,7 +21,7 @@ public class KafkaProducerService {
 
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "192.168.94.138:19092,192.168.94.139:19092,192.168.94.140:19092");
+        props.put("bootstrap.servers", "192.168.94.150:9092");
         props.put("retries", 3);
         props.put("linger.ms", 1);
         props.put("key.serializer",
@@ -32,7 +32,7 @@ public class KafkaProducerService {
                 props);
         for (int i = 0; i < 1; i++) {
             ProducerRecord<String, String> record = new ProducerRecord<String, String>(
-                    "shuaige", "11", "今天天气不错哟yoyo=======>" + i);
+                    "test", "11", "FunnyDayhhhhhhhhhhhhhhhhhhyoyo=======>" + i);
             producer.send(record, new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata metadata, Exception e) {
